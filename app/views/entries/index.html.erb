@@ -1,0 +1,85 @@
+   <section id="lab_video_slider" style="padding: 1px;min-height: 90vh; width:inherit;
+    height: auto; position: sticky; overflow: hidden">
+  <div class="container-fluid">
+    <div class="row">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+      <!-- Link Swiper's CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.5/css/swiper.min.css">
+      <link rel="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/js/swiper.min.js">
+      <link rel="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/css/swiper.css">
+      <!-- Swiper -->
+    <div class="swiper-container" style=" width: 1500px;
+   height: 750px; border-radius:10px;"> 
+   <!--Main display part--> 
+   <div class="swiper-wrapper"> 
+     <!--Each slide-->
+     <div class="swiper-slide">
+     <img src="<%= image_path('healthfood.jpg') %>" style="max-height: 1000px; min-height: 900px; ">
+      </div>
+     <div class="swiper-slide">
+     <img src="<%= image_path('healthyfood3.jpg') %>" style="max-height: 1000px; min-height: 900px;">
+    </div>
+   </div>
+   <!--Navigation-->
+   <div class="swiper-pagination"></div>
+</div>
+  <!-- Swiper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.5/js/swiper.min.js"></script>
+   <!-- Initialize Swiper -->
+    </div>
+  <!-- end .row -->
+  </div>
+  <!-- end .container-->
+  </div>
+  <!-- end #section -->
+</section>
+
+   <div class="columns mt-6 is-centered">
+     <% @entries.each do |entry| %>
+       <div class="column is-one-quarter">
+       <div class="card">
+       <header class="card-header">
+        <p class="card-header-title">
+        <%= entry.meal_type %></p>
+       </header>
+       <div class="card-content">
+       <div class="content">
+       <p><span class="has-text-weight-bold"><%= entry.calories %></span> Calories</p>
+       <p><span class="has-text-weight-bold"> <%= entry.protien %></span>gram of protien</p>
+        <p><span class="has-text-weight-bold"><%= entry.carbohydrates %></span> gram of carbohydrates</p>
+        <p><span class="has-text-weight-bold"><%= entry.fats %></span>gram of fats</p>
+        <p class="italic">Logged<%= time_ago_in_words(entry.created_at) %></p>
+        </div>
+        </div>
+        <div class="card-footer">
+        <%= link_to 'Show', entry , class:"card-footer-item" %>
+        <%= link_to 'Edit', edit_entry_path(entry) ,class:"card-footer-item"%>
+        <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } ,class:"card-footer-item"%>
+        </div>
+        </div>
+        </div>
+    <% end %>
+    </div>
+</div>
+</div>
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+      loop: true,         //Image loop
+      effect: 'slide',    //Animation when switching
+      speed: 3000,        //Image switching speed
+      delay:7000, 
+      autoplay: {         //Move automatically
+        disableOnInteraction: true
+      },
+      pagination: {        //Pagination
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: false
+      },
+      navigation: {        //Navigation
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+</script>

@@ -1,0 +1,36 @@
+<% content_for :title do %>
+  Foodlog &ndash; <%= DateTime.now%>
+<% end %>
+<div class="columns is-centered mt-6">
+<div class="column is-one-third">
+<h2 class="has-text-weight-bold is-size mb-2 centered">Entries</h2>
+<div class="card">
+<div class="card-content">
+<div class="panel-heading">
+  <%= @entry.meal_type %>
+</div>
+<div class="panel-block">
+Calories:
+  <%= @entry.calories %>
+</div>
+<div class="panel-block">
+Protien:
+  <%= @entry.protien %>
+</div>
+<div class="panel-block">
+  Carbohydrates:
+  <%= @entry.carbohydrates %>
+</div>
+<div class="panel-block">
+Fats:
+  <%= @entry.fats %>
+</div>
+</div>
+<div class="card-footer">
+<%= link_to 'Edit', edit_entry_path(@entry) , class:"card-footer-item btn btn-secondary" %> 
+<%= link_to 'Delete', entry_path , method: :delete , data:{confirm:"are you sure ?"}, class:"card-footer-item btn btn-secondary" %>
+</div>
+</div>
+
+</div>
+</div>
