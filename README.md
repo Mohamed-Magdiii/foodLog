@@ -1,5 +1,5 @@
 # foodLog
-#Ruby On Rails 
+# Ruby On Rails 
 Creating the new Ruby on Rails application
 Creating the first model and scaffol
 A tour of the first scaffold and application structure
